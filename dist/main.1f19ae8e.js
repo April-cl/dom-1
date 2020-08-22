@@ -118,11 +118,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-dom.attr(test1, "title", "blue");
-dom.style(test1, "border", "none");
-console.log(dom.attr(test1, "title"));
-console.log(dom.text(test1));
-console.log(dom.html(test1));
+dom.class.add(test1, "blue");
+dom.class.remove(test1, "border");
+console.log(dom.class.has(test1, "red"));
 },{}],"C:/Users/xcl82/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

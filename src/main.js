@@ -1,5 +1,3 @@
-dom.attr(test1, "title", "blue");
-dom.style(test1, "border", "none");
-console.log(dom.attr(test1, "title"));
-console.log(dom.text(test1));
-console.log(dom.html(test1));
+dom.class.add(test1, "blue");
+dom.class.remove(test1, "border");
+console.log(dom.class.has(test1, "red"));
