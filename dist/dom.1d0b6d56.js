@@ -129,6 +129,13 @@ window.dom = {
   },
   before: function before(node, node2) {
     node.parentNode.insertBefore(node2, node);
+  },
+  append: function append(parent, node) {
+    parent.appendChild(node);
+  },
+  wrap: function wrap(node, parent) {
+    dom.before(node, parent);
+    dom.append(parent, node);
   }
 };
 },{}],"C:/Users/xcl82/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -159,7 +166,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53321" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58783" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
