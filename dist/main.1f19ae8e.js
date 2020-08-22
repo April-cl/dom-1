@@ -118,15 +118,15 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var s2 = dom.find("#s2")[0];
-console.log(dom.siblings(s2));
-console.log(dom.next(s2));
-console.log(dom.prev(s2));
-var t = dom.find("#siblings")[0];
-dom.each(dom.children(t), function (n) {
-  return dom.style(n, "color", "red");
-});
-console.log(dom.index(s2));
+var div = dom.find("#test>.red")[0]; // 获取对应的元素
+
+dom.style(div, "color", "red"); // 设置 div.style.color
+
+var divList = dom.find(".red"); // 获取多个 div.red 元素
+
+dom.each(divList, function (n) {
+  return console.log(n);
+}); // 遍历 divList 里的所有元素
 },{}],"C:/Users/xcl82/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
