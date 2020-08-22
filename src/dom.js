@@ -29,4 +29,47 @@ window.dom = {
       x = node.firstChild;
     }
   },
+  attr(node, name, value) {
+    if (arguments.length === 3) {
+      node.setAttribute(name, value);
+    } else if (arguments.length == 2) {
+      return node.getAttribute(name);
+    }
+  },
+  text(node, string) {
+    if (arguments.length === 2) {
+      if ("innerText" in node) {
+        node.innerText = string;
+      } else {
+        node.textContent = string;
+      }
+    } else if (arguments.length === 1) {
+      if ("innerText" in node) {
+        return node.innerText;
+      } else {
+        return node.textContent;
+      }
+    }
+  },
+  html(node, string) {
+    if (arguments.length === 2) {
+      node.innerHTML = string;
+    } else if (arguments.length === 1) {
+      return node.innerHTML;
+    }
+  },
+  style(node, name, value) {
+    if (arguments.length === 3) {
+      node.style[name] = value;
+    } else if (arguments.length === 2) {
+      if (typeof name === "string") {
+        return node.style[name];
+      } else if (name instanceof Object) {
+        const object = name;
+        for (let key in object) {
+          node.style[key] = object[key];
+        }
+      }
+    }
+  },
 };

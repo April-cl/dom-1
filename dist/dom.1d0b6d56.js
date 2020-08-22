@@ -149,6 +149,50 @@ window.dom = {
       array.push(dom.remove(node.firstChild));
       x = node.firstChild;
     }
+  },
+  attr: function attr(node, name, value) {
+    if (arguments.length === 3) {
+      node.setAttribute(name, value);
+    } else if (arguments.length == 2) {
+      return node.getAttribute(name);
+    }
+  },
+  text: function text(node, string) {
+    if (arguments.length === 2) {
+      if ("innerText" in node) {
+        node.innerText = string;
+      } else {
+        node.textContent = string;
+      }
+    } else if (arguments.length === 1) {
+      if ("innerText" in node) {
+        return node.innerText;
+      } else {
+        return node.textContent;
+      }
+    }
+  },
+  html: function html(node, string) {
+    if (arguments.length === 2) {
+      node.innerHTML = string;
+    } else if (arguments.length === 1) {
+      return node.innerHTML;
+    }
+  },
+  style: function style(node, name, value) {
+    if (arguments.length === 3) {
+      node.style[name] = value;
+    } else if (arguments.length === 2) {
+      if (typeof name === "string") {
+        return node.style[name];
+      } else if (name instanceof Object) {
+        var object = name;
+
+        for (var key in object) {
+          node.style[key] = object[key];
+        }
+      }
+    }
   }
 };
 },{}],"C:/Users/xcl82/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
