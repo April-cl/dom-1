@@ -17,4 +17,16 @@ window.dom = {
     dom.before(node, parent);
     dom.append(parent, node);
   },
+  remove(node) {
+    node.parentNode.removeChild(node);
+    return node;
+  },
+  empty(node) {
+    const array = [];
+    let x = node.firstChild;
+    while (x) {
+      array.push(dom.remove(node.firstChild));
+      x = node.firstChild;
+    }
+  },
 };

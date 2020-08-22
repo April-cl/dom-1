@@ -136,6 +136,19 @@ window.dom = {
   wrap: function wrap(node, parent) {
     dom.before(node, parent);
     dom.append(parent, node);
+  },
+  remove: function remove(node) {
+    node.parentNode.removeChild(node);
+    return node;
+  },
+  empty: function empty(node) {
+    var array = [];
+    var x = node.firstChild;
+
+    while (x) {
+      array.push(dom.remove(node.firstChild));
+      x = node.firstChild;
+    }
   }
 };
 },{}],"C:/Users/xcl82/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -166,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62098" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
