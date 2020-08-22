@@ -1,3 +1,8 @@
-dom.class.add(test1, "blue");
-dom.class.remove(test1, "border");
-console.log(dom.class.has(test1, "red"));
+const fn = () => {
+  console.log("点到我啦");
+};
+
+dom.on(test1, "click", fn);
+dom.on(test2, "click", () => {
+  dom.off(test1, "click", fn);
+});
